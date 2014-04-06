@@ -1,0 +1,14 @@
+li {
+  list-style-type: none;
+  padding-bottom: 5px;
+}
+
+.hack_img {
+  max-height: 150px;
+  max-width: 150px;
+  float: left;
+}
+
+.hackathons {
+  display: inline-block;
+}

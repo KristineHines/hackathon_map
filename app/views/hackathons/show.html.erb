@@ -1,1 +1,11 @@
 <h1>Hackathons</h1>
+
+<ul>
+  <% @hackathons.each do |hackathon| %>
+    <li class="hackathons">
+      <%= image_tag "#{hackathon['logo']}", class: "hack_img"%>
+      <h3><%=hackathon["name"]%></h3>
+      <%=hackathon["description"]%>
+    </li>
+  <%end%>
+</ul>
