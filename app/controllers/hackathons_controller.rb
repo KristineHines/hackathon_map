@@ -7,11 +7,15 @@ class HackathonsController < ApplicationController
       Hackathon.create(hackathon_id: hackathon["id"],
                             address: "#{hackathon["location"]["city"]},
                                       #{hackathon["state"]}
-                                      #{hackathon["country"]}")
+                                      #{hackathon["country"]}",
+                                png: hackathon["logo"],
+                               name: hackathon["name"],
+                                url: hackathon["url"])
       end
     end
     @all_hacks = Hackathon.all
     @hash = Gmaps4rails.build_markers(@all_hacks) do |hackathon, marker|
+      marker.infowindow "<h3>#{hackathon.name}</h3><a href=#{hackathon.url}>#{hackathon.url}</a>"
       marker.lat hackathon.latitude
       marker.lng hackathon.longitude
     end
