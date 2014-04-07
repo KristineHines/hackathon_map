@@ -13,12 +13,11 @@
       });
   </script>
 </div>
-
-<div class="container" id="hack_boxes">
-  <% @hackathons.each do |hackathon| %>
-  <div class="hack_box">
-    <%= image_tag "#{hackathon['logo']}", class: "hack_img"%>
-      <a href=<%= hackathon['url'] %>><h3 class="hack_title"><%=hackathon["name"]%></h3></a>
-    </div>
-  <%end%>
+<div id="bottom">
+  <ol id="bottom_text">
+    <li class="h3">Check out where the hackathons are happening all around the globe.</li>
+    <li class="h3">Simply click on a cluster of hackathons and it will automatically zoom you in to that part of the world.</li>
+    <li class="h3">Click on a specific hackathon to get the name and link to the hackathon description.</li>
+  </ol>
 </div>
+
