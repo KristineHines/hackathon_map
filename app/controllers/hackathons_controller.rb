@@ -3,7 +3,7 @@ class HackathonsController < ApplicationController
     path = "http://hackerleague.org/api/v1/hackathons.json"
     @hackathons = HTTParty.get(path)
     @hackathons.each do |hackathon|
-      Hackathon.create(hackathon_id: hackathon["id"], 
+      Hackathon.find_or_create_by_hackathon_id(hackathon_id: hackathon["id"], 
                             address: "#{hackathon["location"]["city"]}, 
                                       #{hackathon["state"]} 
                                       #{hackathon["country"]}")

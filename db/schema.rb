@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140406055641) do
+ActiveRecord::Schema.define(version: 20140407004745) do
 
   create_table "hackathons", force: true do |t|
     t.string "hackathon_id"
@@ -19,5 +19,7 @@ ActiveRecord::Schema.define(version: 20140406055641) do
     t.float  "latitude"
     t.float  "longitude"
   end
+
+  add_index "hackathons", ["hackathon_id"], name: "index_hackathons_on_hackathon_id", unique: true
 
 end
