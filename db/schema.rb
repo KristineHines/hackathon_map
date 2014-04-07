@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140407042534) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "hackathons", force: true do |t|
     t.string "hackathon_id"
     t.string "address"
@@ -23,6 +26,6 @@ ActiveRecord::Schema.define(version: 20140407042534) do
     t.string "url"
   end
 
-  add_index "hackathons", ["hackathon_id"], name: "index_hackathons_on_hackathon_id", unique: true
+  add_index "hackathons", ["hackathon_id"], name: "index_hackathons_on_hackathon_id", unique: true, using: :btree
 
 end
