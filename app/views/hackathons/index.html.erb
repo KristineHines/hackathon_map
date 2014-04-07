@@ -1,6 +1,8 @@
-<h1>Hackathons</h1>
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+<div id="header">
+  <h1 id="page_title">Hackathons Around the World</h1>
+</div>
+<div class="jumbotron" id="map_container">
+  <div id="map" ></div>
   <script>
       handler = Gmaps.build('Google');
       console.log(handler)
@@ -12,12 +14,11 @@
   </script>
 </div>
 
-<ul>
+<div class="container" id="hack_boxes">
   <% @hackathons.each do |hackathon| %>
-    <li class="hackathons">
-      <%= image_tag "#{hackathon['logo']}", class: "hack_img"%>
-      <h3><%=hackathon["name"]%></h3>
-      <%=hackathon["description"]%>
-    </li>
+  <div class="hack_box">
+    <%= image_tag "#{hackathon['logo']}", class: "hack_img"%>
+      <a href=<%= hackathon['url'] %>><h3 class="hack_title"><%=hackathon["name"]%></h3></a>
+    </div>
   <%end%>
-</ul>
+</div>

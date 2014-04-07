@@ -1,14 +1,30 @@
-li {
-  list-style-type: none;
-  padding-bottom: 5px;
+#header {
+    text-align: center;
+    color: lightgrey;
+    background-color: darkgray;
+}
+
+#page_title {
+    margin: 0px;
 }
 
 .hack_img {
-  max-height: 150px;
-  max-width: 150px;
-  float: left;
+    max-height: 100px;
+    max-width: 100px;
+    vertical-align: center;
 }
 
-.hackathons {
-  display: inline-block;
+#hack_boxes {
+    text-align: center;
+}
+
+.hack_box {
+    display: inline-block;
+    width: 200px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.hack_title {
+    color: black;
 }
