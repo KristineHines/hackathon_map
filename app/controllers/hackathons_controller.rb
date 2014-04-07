@@ -18,9 +18,6 @@ class HackathonsController < ApplicationController
 
   def get_markers
     @all_hacks = Hackathon.all
-    puts 'All hacks: '
-    puts @all_hacks.to_json
-
     @all_hacks.reject! { |hack| !hack.longitude || !hack.latitude }
 
     @hash = Gmaps4rails.build_markers(@all_hacks) do |hackathon, marker|
