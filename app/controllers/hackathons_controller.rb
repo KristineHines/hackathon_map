@@ -3,10 +3,18 @@ class HackathonsController < ApplicationController
     path = "http://hackerleague.org/api/v1/hackathons.json"
     @hackathons = HTTParty.get(path)
     @hackathons.each do |hackathon|
-      Hackathon.find_or_create_by_hackathon_id(hackathon_id: hackathon["id"], 
-                            address: "#{hackathon["location"]["city"]}, 
-                                      #{hackathon["state"]} 
+      if Hackathon.find_by_hackathon_id(hackathon["id"]) == nil
+      Hackathon.create(hackathon_id: hackathon["id"],
+                            address: "#{hackathon["location"]["city"]},
+                                      #{hackathon["state"]}
                                       #{hackathon["country"]}")
+      end
     end
+    @all_hacks = Hackathon.all
+    @hash = Gmaps4rails.build_markers(@all_hacks) do |hackathon, marker|
+      marker.lat hackathon.latitude
+      marker.lng hackathon.longitude
+    end
+    puts @hash
   end
 end
